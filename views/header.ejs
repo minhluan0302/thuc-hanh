@@ -25,8 +25,68 @@
             <a class="nav-link" href="#">Pricing</a>
           </li>
         </ul>
-        <span class="navbar-text"> Navbar text with an inline element </span>
+        <span class="navbar-text me-3">
+          Navbar text with an inline element
+        </span>
+        <!-- Nút Đăng nhập với modal -->
+        <button
+          class="btn btn-outline-light me-2"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#loginModal"
+        >
+          Đăng nhập
+        </button>
+        <button class="btn btn-light" type="button">Đăng ký</button>
       </div>
     </div>
   </nav>
 </header>
+
+<!-- Modal Đăng nhập -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/login">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="loginEmail"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Mật khẩu</label>
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Đăng nhập</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

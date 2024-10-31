@@ -1,8 +1,9 @@
-const getHome = (req, res) => {
+const getAbout = (req, res) => {
   res.render("views/layout", {
     data: {
-      title: "Home",
+      title: "About",
+      page: "about",
     },
   });
 };
-export { getHome };
+export { getAbout };

@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav
+      class="col-md-3 col-lg-2 d-md-block text-white min-vh-50 p-4 m-4 rounded"
+      style="background-color: #007f00"
+    >
+      <h6 class="text-center">THÔNG TIN TÀI KHOẢN</h6>
+      <ul class="nav flex-column text-center p-3">
+        <li class="nav-item">
+          <a class="nav-link text-white active" href="#">
+            <i class="bi bi-person-circle"></i> Quản lý tài khoản
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-gear"></i> Quản lý địa chỉ
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-chat-dots"></i> Lịch sử đặt hàng
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-bell"></i> Đặt lại mật khẩu
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">
+            <i class="bi bi-box-arrow-right"></i> Xóa tài khoản
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="ms-sm-auto col-lg-9 px-md-4 mt-2">
+      <form>
+        <% if (data.rows.length > 0) { %> <% data.rows.forEach(function(item,
+        index) { %>
+        <div class="col-md-12 mt-3">
+          <label for="hovaten<%= index %>" class="form-label"
+            >Họ của bạn *</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="hovaten<%= index %>"
+            required
+            value="<%= item.username %>"
+          />
+        </div>
+        <div class="col-md-12 mt-3">
+          <label for="tencuaban<%= index %>" class="form-label"
+            >Tên của bạn *</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="tencuaban<%= index %>"
+            required
+            value="<%= item.fullname %>"
+          />
+        </div>
+        <div class="col-md-12 mt-3">
+          <label for="email<%= index %>" class="form-label"
+            >Địa chỉ email của bạn *</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="email<%= index %>"
+            required
+            value="<%= item.email %>"
+          />
+        </div>
+        <% }); %> <% } else { %>
+        <p class="text-center">Không có dữ liệu tài khoản.</p>
+        <% } %>
+
+        <div class="mt-4">
+          <button type="submit" class="btn btn-primary w-100">
+            Cập nhật tài khoản
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
