@@ -1,0 +1,113 @@
+<header>
+  <nav class="navbar bg-dark navbar-expand-lg">
+    <div class="container-fluid">
+      <div class="d-flex align-items-center w-100">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/home"
+              ><i class="bi bi-house-door"></i> Home</a
+            >
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link text-white" href="#"
+              ><i class="bi bi-people"></i> Bạn bè</a
+            >
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link text-white" href="#"
+              ><i class="bi bi-shop"></i> Marketplace</a
+            >
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link text-white" href="#"
+              ><i class="bi bi-bell"></i> Thông báo</a
+            >
+          </li> -->
+        </ul>
+
+        <!-- Khu vực tài khoản -->
+        <div class="ms-auto">
+          <% if (user) { %>
+          <a href="/profile/<%=user.id%>" class="text-light me-3"
+            >Xin chào, <%= user.fullname %></a
+          >
+          <form method="post" action="/disstroy">
+            <button class="btn btn-outline-light btn-sm" type="submit">
+              Đăng xuất
+            </button>
+          </form>
+          <% } else { %>
+          <button
+            class="btn btn-outline-light me-2"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+          >
+            Đăng nhập
+          </button>
+          <a href="/register" class="btn btn-light btn-sm" type="button"
+            >Đăng ký</a
+          >
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Modal Đăng nhập -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          id="loginForm"
+          method="POST"
+          action="/login"
+          data-success="<%= data.successMessage %>"
+          data-error="<%= data.errorMessage %>"
+        >
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="loginEmail"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Mật khẩu</label>
+            <input
+              type="password"
+              class="form-control"
+              id="loginPassword"
+              name="password"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-dark w-100">Đăng nhập</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  aler();
+</script>

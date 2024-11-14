@@ -44,7 +44,14 @@ const login = async (userData) => {
   console.log(rows);
   return rows;
 };
-
+const getSanpham = async () => {
+  const [rows, fields] = await pool.execute("SELECT * FROM `sanpham`");
+  return rows;
+};
+const getGroup = async () => {
+  const [rows, fields] = await pool.execute("SELECT * FROM `nhom`");
+  return rows;
+};
 export default {
   getAllUser,
   getInforUser,
@@ -52,4 +59,6 @@ export default {
   deleteUser,
   login,
   getProfile,
+  getSanpham,
+  getGroup,
 };
