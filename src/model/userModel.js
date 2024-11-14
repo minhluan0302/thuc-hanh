@@ -52,6 +52,21 @@ const getGroup = async () => {
   const [rows, fields] = await pool.execute("SELECT * FROM `nhom`");
   return rows;
 };
+// lấy chi tiết sản phẩm
+const getDetailProduct = async (id) => {
+  const [rows, fields] = await pool.execute(
+    "SELECT * FROM `sanpham` WHERE id=?",
+    [id]
+  );
+  return rows[0];
+};
+const getProductTheGroup = async (idGroup) => {
+  const [rows, fields] = await pool.execute(
+    "SELECT * FROM `sanpham` WHERE idnhom =?",
+    [idGroup]
+  );
+  return rows;
+};
 export default {
   getAllUser,
   getInforUser,
@@ -61,4 +76,6 @@ export default {
   getProfile,
   getSanpham,
   getGroup,
+  getDetailProduct,
+  getProductTheGroup,
 };

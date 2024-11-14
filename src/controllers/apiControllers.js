@@ -39,4 +39,23 @@ const getGroup = async (req, res) => {
   const listGroup = await userModel.getGroup();
   return res.json(listGroup);
 };
-export { editUser, deleteUser, login, distroySession, getGroup };
+const getDetailProduct = async (req, res) => {
+  const id = req.params.id;
+  const product = await userModel.getDetailProduct(id);
+  console.log(product);
+  return res.json(product);
+};
+const getProductTheGroup = async (req, res) => {
+  const idGroup = req.params.idGroup;
+  const productTheGroup = await userModel.getProductTheGroup(idGroup);
+  return res.json(productTheGroup);
+};
+export {
+  editUser,
+  deleteUser,
+  login,
+  distroySession,
+  getGroup,
+  getDetailProduct,
+  getProductTheGroup,
+};

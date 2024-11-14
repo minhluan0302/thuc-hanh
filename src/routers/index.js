@@ -14,6 +14,8 @@ import {
   login,
   distroySession,
   getGroup,
+  getDetailProduct,
+  getProductTheGroup,
 } from "../controllers/apiControllers";
 import { checkUser, checkAdmin } from "../middleware/login";
 const initWebRoutes = (app) => {
@@ -29,7 +31,9 @@ const initWebRoutes = (app) => {
   app.post("/delete/:id", deleteUser);
   app.post("/login", login);
   app.post("/disstroy", distroySession);
-  app.get("/sanpham", getSanpham);
+  app.get("/listProducts", getSanpham);
   app.get("/group", getGroup);
+  app.get("/detailProduct/:id", getDetailProduct);
+  app.get("/product/:idGroup", getProductTheGroup);
 };
 export default initWebRoutes;
