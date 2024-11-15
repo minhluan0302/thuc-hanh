@@ -17,7 +17,7 @@ import {
   getDetailProduct,
   getProductTheGroup,
 } from "../controllers/apiControllers";
-import { checkUser, checkAdmin } from "../middleware/login";
+import { checkUser, checkAdmin, verifyToken } from "../middleware/login";
 const initWebRoutes = (app) => {
   app.get("/", checkAdmin, getAllUser);
   app.get("/about", getAbout);
@@ -25,7 +25,7 @@ const initWebRoutes = (app) => {
   app.get("/edit/:id", checkAdmin, getEditUser);
   app.get("/profile/:id", checkUser, getProfile);
   app.get("/home", getHome);
-  app.get("/register", getRegister);
+  app.get("/register", verifyToken, getRegister);
   // API
   app.post("/edit/:id/repair", editUser);
   app.post("/delete/:id", deleteUser);
